@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Power of Momentum: Why Nothing is Ever Truly Lost</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f0f9ff;
+      color: #1e293b;
+      padding: 20px;
+      line-height: 1.7;
+    }
+    h1, h2 {
+      color: #0284c7;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    button, input[type=number] {
+      margin: 10px;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #0284c7;
+      cursor: pointer;
+    }
+    button {
+      background: #0284c7;
+      color: white;
+    }
+    input[type=number] {
+      width: 100px;
+    }
+    .collision-area {
+      margin: 30px 0;
+      height: 150px;
+      background: #e0f2fe;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .object {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 50px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 50px;
+      font-weight: bold;
+      background: #38bdf8;
+    }
+    .object2 {
+      background: #f97316;
+    }
+    .calculator {
+      background: #bae6fd;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<header>
+    Physics for Everyone
+  </header>
+  
+  <nav>
+    <a href="index.html">Home</a>
+  </nav>
+  
+  <style>
+        header {
+        background-color: #0284c7;
+        padding: 20px;
+        text-align: center;
+        color: white;
+        font-size: 2.5rem;
+        font-weight: bold;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        background-color: #0369a1;
+        padding: 10px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.1rem;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+      nav a:hover {
+        background-color: #0ea5e9;
+      }
+  </style>
+  
+  
+<body>
+
+<h1>The Power of Momentum: Why Nothing is Ever Truly Lost</h1>
+
+<div class="section">
+  <h2>Imagine a Collision</h2>
+  <p>You're standing on an icy lake. You push a friend, and you both glide apart — slowly, smoothly. You didn't just send them flying: you flew backwards yourself. But why?</p>
+  <p>This is the magic of <strong>momentum conservation</strong>: when two (or more) objects interact in isolation, the total momentum before and after the interaction remains the same.</p>
+  <p>Momentum is a "hidden currency" of motion — and nature never loses track of it.</p>
+
+  <div class="collision-area" id="collisionArea">
+    <div class="object" id="obj1">m₁</div>
+    <div class="object object2" id="obj2">m₂</div>
+  </div>
+  <button onclick="startCollision()">Start Collision</button>
+</div>
+
+<div class="section">
+  <h2>The Law Itself</h2>
+  <p>The conservation of momentum can be written simply:</p>
+  <p><strong>m₁v₁ + m₂v₂ = m₁v₁' + m₂v₂'</strong></p>
+  <p>where:</p>
+  <ul>
+    <li><em>m₁, m₂</em> are the masses</li>
+    <li><em>v₁, v₂</em> are initial velocities</li>
+    <li><em>v₁', v₂'</em> are final velocities after collision</li>
+  </ul>
+
+  <p><strong>Key idea:</strong> Even if the objects crash, bounce, stick together, or break apart — the total momentum remains constant (if no outside forces like friction act strongly).</p>
+
+  <p>In elastic collisions (like pool balls), kinetic energy is also conserved.</p>
+  <p>In inelastic collisions (like car crashes), kinetic energy is not conserved — but <strong>momentum always is</strong>.</p>
+</div>
+
+<div class="section">
+  <h2>Try It Yourself: Momentum Calculator</h2>
+
+  <div class="calculator">
+    <p>Assume a perfectly inelastic collision (they stick together).</p>
+    <input type="number" id="mass1" placeholder="Mass 1 (kg)" value="2">
+    <input type="number" id="vel1" placeholder="Velocity 1 (m/s)" value="3">
+    <br><br>
+    <input type="number" id="mass2" placeholder="Mass 2 (kg)" value="3">
+    <input type="number" id="vel2" placeholder="Velocity 2 (m/s)" value="-2">
+    <br><br>
+    <button onclick="calculateCollision()">Calculate Final Velocity</button>
+    <p id="calcResult">Final velocity: -- m/s</p>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Momentum Beyond Collisions</h2>
+  <p>Momentum isn't just about cars crashing or ice skaters pushing off each other.</p>
+  <p>It's how rockets fly: ejecting mass (hot gases) backward gives rockets forward motion, even in empty space!</p>
+  <p>It's how billiards work, how bullets propel, how galaxies interact over billions of years.</p>
+
+  <p>In every secret corner of the universe, momentum keeps dancing — and it never skips a beat.</p>
+
+  <p><em>Physics is the art of seeing the invisible rules underneath the visible world.</em></p>
+</div>
+
+<script>
+let obj1 = document.getElementById("obj1");
+let obj2 = document.getElementById("obj2");
+let pos1 = 20;
+let pos2 = 400;
+let v1 = 2; // units/sec
+let v2 = -1; // units/sec
+let animationId;
+
+function startCollision() {
+  pos1 = 20;
+  pos2 = 400;
+  v1 = 2;
+  v2 = -1;
+  if (animationId) cancelAnimationFrame(animationId);
+  move();
+}
+
+function move() {
+  obj1.style.left = pos1 + "px";
+  obj2.style.left = pos2 + "px";
+  
+  if (pos1 + 50 >= pos2) {
+    v1 = 0;
+    v2 = 0;
+    return;
+  }
+  
+  pos1 += v1;
+  pos2 += v2;
+  animationId = requestAnimationFrame(move);
+}
+
+function calculateCollision() {
+  const m1 = parseFloat(document.getElementById("mass1").value);
+  const v1i = parseFloat(document.getElementById("vel1").value);
+  const m2 = parseFloat(document.getElementById("mass2").value);
+  const v2i = parseFloat(document.getElementById("vel2").value);
+  
+  const finalVelocity = (m1*v1i + m2*v2i) / (m1 + m2);
+  document.getElementById("calcResult").innerText = 
+    `Final velocity: ${finalVelocity.toFixed(2)} m/s`;
+}
+</script>
+
+</body>
+</html>

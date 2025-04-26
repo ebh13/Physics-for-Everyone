@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Understanding the Doppler Effect</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f9fafb;
+      color: #1e293b;
+      padding: 20px;
+      line-height: 1.7;
+    }
+    h1, h2 {
+      color: #0ea5e9;
+    }
+    .section {
+      margin-bottom: 50px;
+    }
+    button, input[type=range], input[type=number] {
+      margin: 10px;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #0ea5e9;
+      cursor: pointer;
+    }
+    button {
+      background: #0ea5e9;
+      color: white;
+    }
+    input[type=range], input[type=number] {
+      width: 200px;
+    }
+    .animation-area {
+      margin: 20px 0;
+      height: 150px;
+      background: #e2e8f0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .source {
+      width: 50px;
+      height: 50px;
+      background: #facc15;
+      border-radius: 50%;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    #observer {
+      position: absolute;
+      right: 20px;
+      top: 50px;
+      font-size: 24px;
+      color: #334155;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+    .calculator {
+      background: #e0f2fe;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<header>
+  Physics for Everyone
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+</nav>
+
+<style>
+      header {
+      background-color: #0284c7;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #0369a1;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.1rem;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    nav a:hover {
+      background-color: #0ea5e9;
+    }
+</style>
+
+
+<body>
+
+<h1>The Doppler Effect: A Journey into Motion and Sound</h1>
+
+<div class="section">
+  <h2>Imagine This...</h2>
+  <p>You're standing by a quiet street, and in the distance, you hear an ambulance rushing toward you. As it gets closer, the siren becomes higher, sharper, almost like it's screaming at you. The moment it flies past, the siren instantly drops into a deeper howl, fading away into the distance. You didn't move. The ambulance didn't change its siren. Yet, somehow, what you heard changed dramatically.</p>
+
+  <p>This is the magic of the <strong>Doppler Effect</strong>: the way waves — sound, light, or others — stretch and squeeze when a source moves relative to an observer. It's one of those hidden secrets of the universe that happens around us every day.</p>
+
+  <div class="animation-area" id="animation1">
+    <div class="source" id="source">🚑</div>
+    <div id="observer">👤</div>
+  </div>
+  <button onclick="moveSource(true)">Play Approaching</button>
+  <button onclick="moveSource(false)">Play Moving Away</button>
+</div>
+
+<div class="section">
+  <h2>How Does It Work?</h2>
+  <p>When a sound source moves <strong>toward</strong> you, the waves it produces bunch up. This makes the frequency higher — meaning you hear a higher-pitched sound.</p>
+  <p>When it moves <strong>away</strong> from you, the waves spread out. This makes the frequency lower — meaning a deeper, lower sound.</p>
+  
+  <p>The same thing happens with light from stars. When stars move away from us, their light shifts towards red (longer waves). When they move towards us, it shifts towards blue (shorter waves). This "cosmic Doppler Effect" is how we know the universe is expanding!</p>
+
+</div>
+
+<div class="section">
+  <h2>Try the Math: Calculate Frequency Shift</h2>
+  <p>Want to see how numbers change? Try calculating how much the observed frequency changes!</p>
+
+  <div class="calculator">
+    <p><strong>Formula:</strong></p>
+    <p>Observed Frequency = (Speed of Sound + Observer Speed) / (Speed of Sound - Source Speed) × Source Frequency</p>
+
+    <input type="number" id="sourceFreq" placeholder="Source Frequency (Hz)" value="500">
+    <input type="number" id="sourceSpeed" placeholder="Source Speed (m/s)" value="30">
+    <input type="number" id="observerSpeed" placeholder="Observer Speed (m/s)" value="0">
+    <button onclick="calculate()">Calculate Observed Frequency</button>
+    <p id="calcResult">Observed Frequency: -- Hz</p>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Physics is for Everyone</h2>
+  <p>Physics isn't about memorizing equations — it's about feeling how the world moves. Whether it's the whisper of an ambulance speeding by, the colors of distant galaxies, or even the tiny beats inside your body, motion shapes everything around us.</p>
+
+  <p>You don't need fancy labs or expensive textbooks to start. All you need is wonder. If you keep asking questions, exploring simple ideas, and experimenting (even through a screen), you're already a physicist.</p>
+
+  <p>Stay curious. Stay unstoppable!</p>
+</div>
+
+<script>
+let sourceMoving = false;
+let audioCtx, oscillator;
+
+function moveSource(approaching) {
+  if (sourceMoving) return;
+  sourceMoving = true;
+  const source = document.getElementById("source");
+  let pos = approaching ? 0 : document.getElementById("animation1").offsetWidth - 60;
+  source.style.left = pos + "px";
+
+  // Create sound
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  oscillator = audioCtx.createOscillator();
+  let baseFreq = 500; // base frequency
+  oscillator.type = 'sine';
+  oscillator.frequency.setValueAtTime(baseFreq, audioCtx.currentTime);
+  oscillator.connect(audioCtx.destination);
+  oscillator.start();
+
+  const interval = setInterval(() => {
+    if ((approaching && pos >= document.getElementById("animation1").offsetWidth - 60) ||
+        (!approaching && pos <= 0)) {
+      clearInterval(interval);
+      oscillator.stop();
+      sourceMoving = false;
+    } else {
+      pos += approaching ? 2 : -2;
+      source.style.left = pos + "px";
+      let distanceFactor = approaching ? (1 - pos / 500) : (1 + pos / 500);
+      oscillator.frequency.setValueAtTime(baseFreq * distanceFactor, audioCtx.currentTime);
+    }
+  }, 20);
+}
+
+function updateSpeed() {
+  const speed = document.getElementById("speedSlider").value;
+  document.getElementById("speedValue").innerText = "Source speed: " + speed + " units";
+}
+
+function calculate() {
+  const sourceFreq = parseFloat(document.getElementById("sourceFreq").value);
+  const sourceSpeed = parseFloat(document.getElementById("sourceSpeed").value);
+  const observerSpeed = parseFloat(document.getElementById("observerSpeed").value);
+  const soundSpeed = 343; // speed of sound in air in m/s
+
+  const observedFreq = ((soundSpeed + observerSpeed) / (soundSpeed - sourceSpeed)) * sourceFreq;
+  document.getElementById("calcResult").innerText = "Observed Frequency: " + observedFreq.toFixed(2) + " Hz";
+}
+</script>
+
+</body>
+</html>

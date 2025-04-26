@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Harmonic Motion: The Hidden Rhythm of the Universe</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      padding: 20px;
+      line-height: 1.7;
+    }
+    h1, h2 {
+      color: #0ea5e9;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    button, input[type=range], input[type=number] {
+      margin: 10px;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #0ea5e9;
+      cursor: pointer;
+    }
+    button {
+      background: #0ea5e9;
+      color: white;
+    }
+    input[type=range], input[type=number] {
+      width: 200px;
+    }
+    .animation-area {
+      margin: 20px 0;
+      height: 200px;
+      background: #e2e8f0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .mass {
+      width: 50px;
+      height: 50px;
+      background: #facc15;
+      border-radius: 10px;
+      position: absolute;
+      top: 75px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    .spring {
+      position: absolute;
+      top: 100px;
+      height: 5px;
+      background: #64748b;
+      left: 0;
+      transform-origin: left;
+    }
+    .calculator {
+      background: #e0f2fe;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+<header>
+  Physics for Everyone
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+</nav>
+
+<style>
+      header {
+      background-color: #0284c7;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #0369a1;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.1rem;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    nav a:hover {
+      background-color: #0ea5e9;
+    }
+</style>
+
+
+<body>
+
+<h1>Simple Harmonic Motion: The Hidden Rhythm of the Universe</h1>
+
+<div class="section">
+  <h2>Feel the Pulse of Motion</h2>
+  <p>Imagine standing in a quiet room. There's a spring hanging from the ceiling with a mass attached to it. You gently pull it down — not too much, just enough to stretch it a bit — and then let it go.</p>
+  <p>What happens? The mass bobs up and down, gracefully and endlessly (at least in a perfect world without friction). Faster at the center, slower at the edges. No sudden jerks. No chaos. Just pure, smooth, predictable motion.</p>
+  <p>This is <strong>Simple Harmonic Motion (SHM)</strong>: when an object feels a restoring force proportional to how far it's been pushed from its equilibrium position. It always wants to go back to its center — and the farther away it is, the harder it pulls back.</p>
+
+  <div class="animation-area" id="animation1">
+    <div class="spring" id="spring"></div>
+    <div class="mass" id="mass">🟰</div>
+  </div>
+  <button onclick="startOscillation()">Start Oscillation</button>
+</div>
+
+<div class="section">
+  <h2>The Heartbeat of Nature</h2>
+  <p>Simple Harmonic Motion isn't just about springs. It's everywhere:</p>
+  <ul>
+    <li>The swing of a pendulum clock</li>
+    <li>The vibration of a guitar string</li>
+    <li>The shaking of atoms in a solid object</li>
+    <li>The orbits of planets (small oscillations)</li>
+    <li>The heartbeats inside living creatures</li>
+  </ul>
+  <p>Whenever you see something swaying, bouncing, vibrating, or oscillating with a steady rhythm, there's a good chance SHM is quietly running the show.</p>
+
+  <p><strong>Key idea:</strong> In SHM, the acceleration is always directed toward the center — and its magnitude is proportional to the distance from the center.</p>
+
+  <p>Mathematically:</p>
+  <p><em>Force = -kx</em> (Hooke's Law)</p>
+  <p><em>Acceleration = -(k/m)x</em> where <em>k</em> is the spring constant, <em>m</em> is the mass, and <em>x</em> is the displacement.</p>
+
+  <input type="range" min="0.5" max="3" step="0.1" value="1" id="freqSlider" oninput="updateFreq()">
+  <p id="freqValue">Frequency factor: 1.0</p>
+</div>
+
+<div class="section">
+  <h2>Try the Math: Find the Period and Frequency</h2>
+
+  <div class="calculator">
+    <p><strong>Period (T):</strong> T = 2π √(m/k)</p>
+    <p><strong>Frequency (f):</strong> f = 1/T</p>
+
+    <input type="number" id="massInput" placeholder="Mass (kg)" value="0.5">
+    <input type="number" id="kInput" placeholder="Spring Constant (N/m)" value="20">
+    <button onclick="calculateSHM()">Calculate Period & Frequency</button>
+    <p id="calcResult">Period: -- s, Frequency: -- Hz</p>
+  </div>
+</div>
+
+<div class="section">
+  <h2>The Universe Dances</h2>
+  <p>Once you start noticing oscillations, you realize: the universe is full of rhythms.</p>
+  <p>From tiny quantum vibrations to massive cosmic waves, everything moves, oscillates, returns, stretches, compresses — and repeats. Even light, even gravity itself can behave like a wave.</p>
+  <p>Simple Harmonic Motion is a starting point — but it's also an endless adventure. Whenever you bounce a ball, pluck a string, ride a swing, or watch the tides roll in, you're seeing the universe sing its eternal song.</p>
+
+  <p>And now, you know the math behind it.</p>
+
+  <p>Physics isn't distant. It's inside you. It's around you. It's you.</p>
+</div>
+
+<script>
+let mass = document.getElementById("mass");
+let spring = document.getElementById("spring");
+let time = 0;
+let animationId;
+let freqFactor = 1.0;
+
+function startOscillation() {
+  if (animationId) cancelAnimationFrame(animationId);
+  time = 0;
+  animate();
+}
+
+function animate() {
+  let amplitude = 80; // maximum stretch (pixels)
+  let omega = freqFactor * 2 * Math.PI / 2; // frequency based on slider
+  let y = amplitude * Math.cos(omega * time);
+  mass.style.top = (75 + y) + "px";
+  spring.style.width = (mass.offsetLeft + 25) + "px";
+  time += 0.02;
+  animationId = requestAnimationFrame(animate);
+}
+
+function updateFreq() {
+  freqFactor = document.getElementById("freqSlider").value;
+  document.getElementById("freqValue").innerText = "Frequency factor: " + freqFactor;
+}
+
+function calculateSHM() {
+  const m = parseFloat(document.getElementById("massInput").value);
+  const k = parseFloat(document.getElementById("kInput").value);
+  const T = 2 * Math.PI * Math.sqrt(m/k);
+  const f = 1/T;
+  document.getElementById("calcResult").innerText = 
+    `Period: ${T.toFixed(2)} s, Frequency: ${f.toFixed(2)} Hz`;
+}
+</script>
+
+</body>
+</html>
