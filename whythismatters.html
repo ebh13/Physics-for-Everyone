@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel= "preconnect" href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Physics for Everyone</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+    header {
+      background-color: #0284c7;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      justify-content: right;
+      background-color: #ffffff;
+      padding: 10px;
+    }
+    nav a {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.3rem;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    #nav-title {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #000000;
+      padding: 5px 10px;
+      margin-right: 650px;
+      border-radius: 5px;
+    }
+    nav a:hover {
+      background-color:#e5e5e5;
+    }
+    .hero {
+      padding: 50px 20px;
+      text-align: center;
+      background-image: url('star background.webp');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+      .hero2 {
+      padding: 50px 20px;
+      text-align: center;
+      background-image: url('edu.png');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .content {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .content h2 {
+      color: #0a0b27;
+      margin-top: 40px;
+    }
+    .content p {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .library {
+      margin-top: 60px;
+    }
+    .article-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .article {
+      background-color: #bae6fd;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .article:hover {
+      transform: scale(1.05);
+    }
+    .article a {
+      text-decoration: none;
+      color: #1e293b;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #0a0b27;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">
+    <span id="nav-title">Physics for Everyone</span>
+  </a>
+  <a href="library.html">Library</a>
+  <a href="whythismatters.html">Why This Matters</a>
+  <a href="getinvolved.html">Get Involved</a>
+  <a href="aboutme.html">About</a>
+</nav>
+
+<header class="hero">Physics for Everyone</header>
+<section class="content" id="why">
+  <h2>Why This Matters</h2>
+  <p>In 2023, the UNESCO Institute for Statistics reported that over 258 million children, adolescents, and youth were out of school globally, many of them lacking access to quality science education. Even among enrolled students, physics is often seen as one of the least accessible subjects due to the cost of materials, limited school resources, and a lack of hands-on, intuitive learning tools.</p>
+
+  <p>Physics is not just an academic subject — it is a fundamental way of understanding the universe we live in. From energy to medicine, from space exploration to environmental technologies, physics drives innovation. Yet, many brilliant minds never get the chance to discover their potential because access to this knowledge is unevenly distributed.</p>
+
+  <p>By providing free, interactive educational tools, we hope to empower students, hobbyists, and self-learners who might otherwise be left out. Our goal is to break the barriers between passion and opportunity, and create a space where learning is truly open to everyone. </p>
+</section>
+
+<section class="mission-section">
+  <h2>Our Mission</h2>
+  <p class="intro">
+    Physics is the foundation of how the universe works — yet, for millions around the world, access to quality education in science is limited by cost, resources, or language. We believe that understanding the universe shouldn't be a luxury — it should be a right.
+  </p>
+  <div class="mission-blocks">
+    <div class="block">
+      <img src="https://cdn-icons-png.flaticon.com/512/4299/4299317.png" alt="Books Icon">
+      <h3>📚 Accessible Education</h3>
+      <p>We create interactive, engaging articles that break down complex physics concepts into digestible, hands-on experiences. No background in science? No problem. Everything is designed to be approachable and empowering.</p>
+    </div>
+    <div class="block">
+      <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Global Reach Icon">
+      <h3>🌍 Global Reach</h3>
+      <p>Whether you're in a city library or a rural village, our content is open-access and mobile-friendly. We're working toward multilingual support and offline access to ensure no one gets left behind.</p>
+    </div>
+    <div class="block">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Community Icon">
+      <h3>🤝 Community-Driven</h3>
+      <p>We're more than a site — we're building a community of learners, teachers, and dreamers. If you believe in making science free, exciting, and universal, there's a place here for you to help or grow.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .mission-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  .mission-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #38bdf8;
+    margin-bottom: 30px;
+  }
+
+  .mission-section .intro {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #cbd5e1;
+  }
+
+  .mission-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .mission-blocks .block {
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .mission-blocks .block:hover {
+    transform: translateY(-5px);
+  }
+
+  .mission-blocks img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+  }
+
+  .mission-blocks h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #facc15;
+  }
+
+  .mission-blocks p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+  }
+
+  @media (min-width: 768px) {
+    .mission-blocks {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .mission-blocks .block {
+      flex: 1;
+    }
+  }
+</style>
+
+
+<footer>
+  © 2025 Physics for Everyone | Built for Open Knowledge
+</footer>
+
+</body>
+</html>
