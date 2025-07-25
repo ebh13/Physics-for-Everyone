@@ -13,7 +13,7 @@
       line-height: 1.7;
     }
     h1, h2 {
-      color: #0ea5e9;
+      color: #0a0b27;
     }
     .section {
       margin-bottom: 60px;
@@ -23,11 +23,11 @@
       padding: 10px;
       font-size: 1rem;
       border-radius: 8px;
-      border: 1px solid #0ea5e9;
+      border: 1px solid #0a0b27;
       cursor: pointer;
     }
     button {
-      background: #0ea5e9;
+      background: #0a0b27;
       color: white;
     }
     input[type=range], input[type=number] {
@@ -70,17 +70,19 @@
       margin-top: 20px;
     }
   </style>
-<header>
-  Physics for Everyone
-</header>
-
 <nav>
-  <a href="index.html">Home</a>
+  <a href="index.html">
+    <span id="nav-title">Physics for Everyone</span>
+  </a>
+  <a href="library.html">Library</a>
+  <a href="whythismatters.html">Why This Matters</a>
+  <a href="getinvolved.html">Get Involved</a>
+  <a href="aboutme.html">About</a>
 </nav>
 
 <style>
-      header {
-      background-color: #0284c7;
+     header {
+      background-color: #0a0b27;
       padding: 20px;
       text-align: center;
       color: white;
@@ -89,25 +91,92 @@
     }
     nav {
       display: flex;
-      justify-content: center;
-      background-color: #0369a1;
+      justify-content: right;
+      background-color: #ffffff;
       padding: 10px;
     }
-    nav a {
+        .hero {
+      padding: 50px 20px;
+      text-align: center;
+      background-image: url('star background.webp');
+      background-size: cover;
+      background-position: center;
       color: white;
+    }
+      .hero2 {
+      padding: 50px 20px;
+      text-align: center;
+      background-image: url('img2.png');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+    nav a {
+      color: rgb(0, 0, 0);
       text-decoration: none;
       margin: 0 15px;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       padding: 5px 10px;
       border-radius: 5px;
     }
+    #nav-title {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #000000;
+      padding: 5px 10px;
+      margin-right: 650px;
+      border-radius: 5px;
+    }
     nav a:hover {
-      background-color: #0ea5e9;
+      background-color:#e5e5e5;
+    }
+        .library {
+      margin-top: 60px;
+    }
+        .article-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+     }
+        .article {
+    background-color: #edf4f8;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.2s;
+    position: relative;
+    overflow: visible;
+    border: 4px solid #0a0b27; /* Outline color */
+    }
+
+    .article a {
+    text-decoration: none;
+    color: #0a0b27; /* Text color */
+    font-size: 1.2rem;
+    font-weight: bold;
+    }
+    .article:hover {
+      transform: scale(1.05);
+    }
+    .article a {
+      text-decoration: none;
+      color: #1e293b;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #0a0b27;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 60px;
     }
 </style>
 
 
 <body>
+  <header>Harmonic Motion</header>
 
 <h1>Simple Harmonic Motion: The Hidden Rhythm of the Universe</h1>
 
